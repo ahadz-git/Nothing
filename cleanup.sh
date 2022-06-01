@@ -117,7 +117,6 @@ printf "This However is Not Retained after the Step is finished. So this part mi
   sudo sed -i -e '/^PATH=/d;/hostedtoolcache/d;/^AZURE/d;/^SWIFT/d;/^DOTNET/d;/DRIVER/d;/^CHROME/d;/HASKELL/d;/^JAVA/d;/^SELENIUM/d;/^GRAALVM/d;/^ANT/d;/^GRADLE/d;/^LEIN/d;/^CONDA/d;/^VCPKG/d;/^ANDROID/d;/^PIPX/d;/^HOMEBREW/d;' /etc/environment
   sudo sed -i '1i PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' /etc/environment
   sed -i '/HOME\/\.local\/bin/d' /home/runner/.bashrc
-  source /home/runner/.bashrc
 } &>/dev/null
 echo "::endgroup::"
 
