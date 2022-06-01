@@ -15,9 +15,12 @@ echo "::group::Uninstalling Unnecessary Applications"
 sudo -EH apt-fast -qq -y update &>/dev/null
 printf "This process will consume most of the cleanup time as APT Package Manager cleans Applications with Single Process.\nParallelism is Not Possible Here, So You Have To Wait For Some Time...\n"
 REL=$(grep "UBUNTU_CODENAME" /etc/os-release | cut -d'=' -f2)
-if [[ ${REL} == "focal" ]]; then
+if [ ${REL} == "focal" ]
+then
   APT_Pac4Purge="alsa-topology-conf alsa-ucm-conf python2-dev python2-minimal libpython-dev libllvm-* llvm-12-linker-tools"
-elif [[ ${REL} == "bionic" ]]; then
+fi
+if [ ${REL} == "bionic" ]
+then
   APT_Pac4Purge="python-dev libllvm6.0"
 fi
 sudo -EH apt-fast -qq -y purge \
